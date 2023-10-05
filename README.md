@@ -6,9 +6,9 @@
 ## Example
 
 ```js
-import data from "oui-data" assert { type: "json" };
+import ouiData from "oui-data" assert { type: "json" };
 
-console.log(data["203706"]);
+console.log(ouiData["203706"]);
 //=> Cisco Systems, Inc
 //=> 80 West Tasman Drive
 //=> San Jose CA 94568
