@@ -15,12 +15,12 @@
     "./index.json"
   ],
   "devDependencies": {
-    "country-data": "^0.0.31",
+    "country-data": "0.0.31",
     "eslint": "8.50.0",
     "eslint-config-silverwind": "76.0.3",
     "fetch-enhanced": "11.1.2",
-    "json-stable-stringify": "^1.0.2",
-    "node-fetch": "^3.3.2",
+    "json-stable-stringify": "1.0.2",
+    "node-fetch": "3.3.2",
     "semver": "7.5.4",
     "updates": "15.0.2",
     "versions": "11.1.0",
