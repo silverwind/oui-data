@@ -1,5 +1,6 @@
 # oui-data
-[![](https://img.shields.io/npm/v/oui-data.svg?style=flat)](https://www.npmjs.org/package/oui-data) [![](https://img.shields.io/npm/dm/oui-data.svg)](https://www.npmjs.org/package/oui-data)
+[![](https://img.shields.io/npm/v/oui-data.svg?style=flat)](https://www.npmjs.org/package/oui-data) [![](https://img.shields.io/npm/dm/oui-data.svg)](https://www.npmjs.org/package/oui-data) [![](https://img.shields.io/bundlephobia/minzip/oui-data.svg)](https://bundlephobia.com/package/oui-data) [![](https://packagephobia.com/badge?p=oui-data)](https://packagephobia.com/result?p=oui-data)
+
 > IEEE OUI database as JSON
 
 ## Example
