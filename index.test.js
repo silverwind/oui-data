@@ -1,5 +1,7 @@
-import ouiData from "./index.json";
+import {readFileSync} from "node:fs";
 
 test("ouiData", () => {
+  // json import in vitest is horribly slow, this is about 50 times faster
+  const ouiData = JSON.parse(readFileSync(new URL("index.json", import.meta.url)));
   expect(ouiData["203706"]).toMatch(/^Cisco/i);
 });
