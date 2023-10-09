@@ -24,9 +24,9 @@ update: node_modules
 	npm install
 	@touch node_modules
 
-.PHONY: data
-data: node_modules
-	node data.js
+.PHONY: update-data
+update-data: node_modules
+	node update-data.js
 
 .PHONY: patch
 patch: node_modules test
