@@ -8,9 +8,6 @@
   "type": "module",
   "sideEffects": false,
   "main": "./index.json",
-  "engines": {
-    "node": ">=18"
-  },
   "files": [
     "./index.json"
   ],
