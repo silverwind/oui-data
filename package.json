@@ -3,7 +3,10 @@
   "version": "1.0.8",
   "author": "silverwind <me@silverwind.io>",
   "description": "IEEE OUI database as JSON",
-  "repository": "silverwind/oui-data",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silverwind/oui-data.git"
+  },
   "license": "BSD-2-Clause",
   "type": "module",
   "sideEffects": false,
