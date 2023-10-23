@@ -17,13 +17,13 @@
   ],
   "devDependencies": {
     "country-data": "0.0.31",
-    "eslint": "8.50.0",
-    "eslint-config-silverwind": "76.0.3",
-    "fetch-enhanced": "11.1.2",
+    "eslint": "8.52.0",
+    "eslint-config-silverwind": "79.0.4",
+    "fetch-enhanced": "12.0.0",
     "json-stable-stringify": "1.0.2",
     "node-fetch": "3.3.2",
-    "updates": "15.0.2",
-    "versions": "11.1.0",
+    "updates": "15.0.3",
+    "versions": "12.0.0",
     "vitest": "0.34.6",
     "vitest-config-silverwind": "3.0.0"
   }
