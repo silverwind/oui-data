@@ -19,8 +19,6 @@
     "country-data": "0.0.31",
     "eslint": "8.52.0",
     "eslint-config-silverwind": "79.0.4",
-    "fetch-enhanced": "12.0.0",
-    "node-fetch": "3.3.2",
     "updates": "15.0.3",
     "versions": "12.0.0",
     "vitest": "0.34.6",

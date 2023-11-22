@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 import {writeFileSync} from "node:fs";
-import fetchEnhanced from "fetch-enhanced";
-import nodeFetch from "node-fetch";
 import {countries} from "country-data";
 import {exit as exitProcess} from "node:process";
-
-const fetch = fetchEnhanced(nodeFetch, {undici: false});
 
 function isStart(firstLine, secondLine) {
   if (firstLine === undefined || secondLine === undefined) return false;
