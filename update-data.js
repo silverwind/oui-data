@@ -3,7 +3,6 @@ import {writeFileSync} from "node:fs";
 import fetchEnhanced from "fetch-enhanced";
 import nodeFetch from "node-fetch";
 import {countries} from "country-data";
-import stringify from "json-stable-stringify";
 import {exit as exitProcess} from "node:process";
 
 const fetch = fetchEnhanced(nodeFetch, {undici: false});
@@ -53,11 +52,9 @@ async function main() {
   if (!/^(OUI|[#]|[A-Fa-f0-9])/.test(text)) {
     throw new Error("Downloaded file does not look like a oui-data.txt file");
   }
-  const result = parse(text.split("\n"));
-  writeFileSync(new URL("index.json", import.meta.url), stringify(result, {
-    space: 1,
-    cmp: (a, b) => parseInt(a.key, 16) > parseInt(b.key, 16) ? 1 : -1,
-  }));
+  const entries = parse(text.split("\n"));
+  const json = JSON.stringify(entries, Object.keys(entries).sort((a, b) => parseInt(a, 16) > parseInt(b, 16) ? 1 : -1), 1);
+  writeFileSync(new URL("index.json", import.meta.url), json);
 }
 
 main().then(exit).catch(exit);
