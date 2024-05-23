@@ -8,7 +8,7 @@
 The module exports a JSON file. Depending on your environment you may need to use [import attributes](https://github.com/tc39/proposal-import-attributes), [import assertions](https://nodejs.org/api/esm.html#import-assertions) or [nothing at all](https://bun.sh/guides/runtime/import-json).
 
 ```js
-import ouiData from "oui-data";
+import ouiData from "oui-data" with {type: "json"};
 
 console.log(ouiData["203706"]);
 //=> Cisco Systems, Inc
