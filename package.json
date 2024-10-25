@@ -1,6 +1,6 @@
 {
   "name": "oui-data",
-  "version": "1.1.210",
+  "version": "1.1.211",
   "author": "silverwind <me@silverwind.io>",
   "description": "IEEE OUI database as JSON",
   "repository": {
