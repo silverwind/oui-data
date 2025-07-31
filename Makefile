@@ -7,7 +7,12 @@ deps: node_modules
 
 .PHONY: lint
 lint: node_modules
-	npx eslint --color *.js
+	npx eslint --ext js,jsx,ts,tsx --color .
+	npx tsc
+
+.PHONY: lint-fix
+lint-fix: node_modules
+	npx eslint --ext js,jsx,ts,tsx --color . --fix
 	npx tsc
 
 .PHONY: test
@@ -27,7 +32,7 @@ update: node_modules
 
 .PHONY: update-data
 update-data: node_modules
-	node update-data.js
+	node update-data.ts
 
 .PHONY: patch
 patch: node_modules test

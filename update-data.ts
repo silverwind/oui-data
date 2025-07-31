@@ -1,14 +1,14 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S node --experimental-strip-types --no-warnings
 import {writeFileSync} from "node:fs";
 import {countries} from "country-data";
 import {exit as exitProcess} from "node:process";
 
-function isStart(firstLine, secondLine) {
+function isStart(firstLine: string | undefined, secondLine: string | undefined) {
   if (firstLine === undefined || secondLine === undefined) return false;
   return firstLine.trim().length === 0 && /([0-9A-F]{2}[-]){2}([0-9A-F]{2})/.test(secondLine);
 }
 
-function parse(lines) {
+function parse(lines: Array<string>) {
   const result = {};
   let i = 3;
   while (i !== lines.length) {
@@ -37,7 +37,7 @@ function parse(lines) {
   return result;
 }
 
-function exit(err) {
+function exit(err?: Error | void) {
   if (err) console.error(err);
   exitProcess(err ? 1 : 0);
 }
