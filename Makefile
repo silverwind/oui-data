@@ -8,6 +8,7 @@ deps: node_modules
 .PHONY: lint
 lint: node_modules
 	npx eslint --color *.js
+	npx tsc
 
 .PHONY: test
 test: node_modules lint

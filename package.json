@@ -16,12 +16,15 @@
     "./index.json"
   ],
   "devDependencies": {
+    "@types/node": "24.1.0",
     "country-data": "0.0.31",
     "eslint": "8.57.0",
-    "eslint-config-silverwind": "94.2.1",
-    "updates": "16.4.0",
-    "versions": "12.1.2",
-    "vitest": "2.1.8",
-    "vitest-config-silverwind": "9.2.0"
+    "eslint-config-silverwind": "101.4.1",
+    "typescript": "5.8.3",
+    "typescript-config-silverwind": "9.0.8",
+    "updates": "16.4.4",
+    "versions": "13.1.0",
+    "vitest": "3.2.4",
+    "vitest-config-silverwind": "10.2.0"
   }
 }
