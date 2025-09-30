@@ -10,9 +10,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 24
+          node-version: latest
           registry-url: https://registry.npmjs.org
       - run: make deps
       - run: make update-data
