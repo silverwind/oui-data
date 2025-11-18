@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --experimental-strip-types --no-warnings
+#!/usr/bin/env node
 import {writeFileSync} from "node:fs";
 import {countries} from "country-data";
 import {exit as exitProcess} from "node:process";
@@ -9,7 +9,7 @@ function isStart(firstLine: string | undefined, secondLine: string | undefined) 
 }
 
 function parse(lines: Array<string>) {
-  const result = {};
+  const result: Record<string, string> = {};
   let i = 3;
   while (i !== lines.length) {
     if (isStart(lines[i], lines[i + 1])) {
