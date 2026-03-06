@@ -49,7 +49,7 @@ async function main() {
     throw new Error("Downloaded file does not look like a oui-data.txt file");
   }
   const entries = parse(text.split("\n"));
-  const json = JSON.stringify(entries, Object.keys(entries).sort((a, b) => parseInt(a, 16) > parseInt(b, 16) ? 1 : -1), 1);
+  const json = JSON.stringify(entries, Object.keys(entries).sort((a, b) => Number.parseInt(a, 16) > Number.parseInt(b, 16) ? 1 : -1), 1);
   writeFileSync(new URL("index.json", import.meta.url), json);
 }
 
