@@ -20,7 +20,7 @@
     "@typescript/native-preview": "7.0.0-dev.20260306.1",
     "country-data": "0.0.31",
     "eslint": "9.39.3",
-    "eslint-config-silverwind": "122.0.2",
+    "eslint-config-silverwind": "122.0.4",
     "jest-extended": "7.0.0",
     "typescript": "5.9.3",
     "typescript-config-silverwind": "15.0.0",
