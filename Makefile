@@ -19,7 +19,7 @@ lint-fix: node_modules
 test: node_modules lint
 	pnpm exec vitest
 
-update: node_modules
+update: node_modules update-actions
 	pnpm exec updates -cu
 	rm -rf node_modules pnpm-lock.yaml
 	pnpm install
@@ -44,3 +44,7 @@ minor: node_modules lint test
 .PHONY: major
 major: node_modules lint test
 	pnpm exec versions -R major package.json
+
+.PHONY: update-actions
+update-actions: node_modules
+	pnpm exec updates -u -M actions
