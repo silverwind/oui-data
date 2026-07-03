@@ -10,10 +10,22 @@
   "license": "BSD-2-Clause",
   "type": "module",
   "sideEffects": false,
-  "main": "./index.json",
-  "exports": "./index.json",
+  "main": "./data/l.addr.json",
+  "exports": {
+    ".": "./data/l.addr.json",
+    "./l": "./data/l.json",
+    "./l.addr": "./data/l.addr.json",
+    "./m": "./data/m.json",
+    "./m.addr": "./data/m.addr.json",
+    "./s": "./data/s.json",
+    "./s.addr": "./data/s.addr.json",
+    "./lm": "./data/lm.json",
+    "./lm.addr": "./data/lm.addr.json",
+    "./lms": "./data/lms.json",
+    "./lms.addr": "./data/lms.addr.json"
+  },
   "files": [
-    "./index.json"
+    "./data"
   ],
   "devDependencies": {
     "@types/node": "25.7.0",
