@@ -19,10 +19,10 @@ console.log(ouiData["203706"]);
 
 ## Registry variants
 
-The default export above (`oui-data/l.addr`) only covers **MA-L** (the
+The default export above (`oui-data`) is equivalent to `oui-data/l.addr` and only covers **MA-L** (the
 classic 24-bit "OUI"), with address, for backwards compatibility. IEEE also
 runs two smaller assignment registries, **MA-M** (28-bit) and **MA-S**
-(36-bit, formerly "IAB"). This fork additionally builds a flat prefix
+(36-bit, formerly "IAB"). This package additionally builds a flat prefix
 &rarr; organization-name map for each registry, and for combinations of
 them, with and without the organization address, as separate JSON files so
 consumers only fetch the variant they need:
