@@ -4,7 +4,7 @@ on:
     - cron: "45 4 * * *"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   update:
@@ -31,3 +31,5 @@ jobs:
           else
             echo "Nothing to commit"
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
