@@ -11,9 +11,16 @@
   "type": "module",
   "sideEffects": false,
   "main": "./index.json",
-  "exports": "./index.json",
+  "exports": {
+    ".": "./index.json",
+    "./l": "./index.json",
+    "./m": "./index-m.json",
+    "./s": "./index-s.json"
+  },
   "files": [
-    "./index.json"
+    "./index.json",
+    "./index-m.json",
+    "./index-s.json"
   ],
   "devDependencies": {
     "@types/node": "25.7.0",
