@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import {writeFileSync} from "node:fs";
-import {countries} from "country-data";
 import {exit as exitProcess} from "node:process";
 
 const sources = [
@@ -8,6 +7,8 @@ const sources = [
   "https://standards-oui.ieee.org/oui28/mam.txt",
   "https://standards-oui.ieee.org/oui36/oui36.txt",
 ];
+
+const regionNames = new Intl.DisplayNames(["en"], {type: "region"});
 
 function isStart(firstLine: string | undefined, secondLine: string | undefined) {
   if (firstLine === undefined || secondLine === undefined) return false;
@@ -41,8 +42,9 @@ function parse(lines: Array<string>) {
 
       // replace country shortcodes
       const shortCode = (/\n([A-Z]{2})$/.exec(owner) || [])[1];
-      if (shortCode && countries[shortCode]) {
-        owner = owner.replace(/\n.+$/, `\n${countries[shortCode].name}`);
+      if (shortCode) {
+        const country = regionNames.of(shortCode)!; // returns the code itself when unassigned
+        if (country !== shortCode) owner = owner.replace(/\n.+$/, `\n${country}`);
       }
 
       result[oui] = owner;
