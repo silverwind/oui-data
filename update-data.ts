@@ -3,11 +3,11 @@ import {writeFileSync} from "node:fs";
 import {countries} from "country-data";
 import {exit as exitProcess} from "node:process";
 
-const sources = {
-  "index.json": "https://standards-oui.ieee.org/oui/oui.txt",
-  "index-m.json": "https://standards-oui.ieee.org/oui28/mam.txt",
-  "index-s.json": "https://standards-oui.ieee.org/oui36/oui36.txt",
-};
+const sources = [
+  "https://standards-oui.ieee.org/oui/oui.txt",
+  "https://standards-oui.ieee.org/oui28/mam.txt",
+  "https://standards-oui.ieee.org/oui36/oui36.txt",
+];
 
 function isStart(firstLine: string | undefined, secondLine: string | undefined) {
   if (firstLine === undefined || secondLine === undefined) return false;
@@ -58,25 +58,23 @@ function exit(err?: Error | void) {
   exitProcess(err ? 1 : 0);
 }
 
-async function update(file: string, url: string) {
+async function fetchRegistry(url: string) {
   const res = await fetch(url);
   const text = await res.text();
   if (!/^(OUI|[#]|[A-Fa-f0-9])/.test(text)) {
     throw new Error(`${url} does not look like a IEEE registry file`);
   }
   const entries = parse(text.split("\n"));
-  const keys = Object.keys(entries);
-  if (new Set(keys.map(key => key.length)).size !== 1) {
+  if (new Set(Object.keys(entries).map(key => key.length)).size !== 1) {
     throw new Error(`${url} yielded assignments of varying length`);
   }
-  const json = JSON.stringify(entries, keys.sort((a, b) => Number.parseInt(a, 16) > Number.parseInt(b, 16) ? 1 : -1), 1);
-  writeFileSync(new URL(file, import.meta.url), json);
+  return entries;
 }
 
 async function main() {
-  const results = await Promise.allSettled(Object.entries(sources).map(([file, url]) => update(file, url)));
-  const errors = results.filter(result => result.status === "rejected").map(result => result.reason);
-  if (errors.length) throw new AggregateError(errors);
+  const entries = Object.assign({}, ...await Promise.all(sources.map(url => fetchRegistry(url))));
+  const keys = Object.keys(entries).sort((a, b) => a.length - b.length || (Number.parseInt(a, 16) > Number.parseInt(b, 16) ? 1 : -1));
+  writeFileSync(new URL("index.json", import.meta.url), JSON.stringify(entries, keys, 1));
 }
 
 main().then(exit).catch(exit);
