@@ -55,7 +55,7 @@ function parse(lines: Array<string>) {
   return result;
 }
 
-function exit(err?: Error | void) {
+function exit(err?: unknown) {
   if (err) console.error(err);
   exitProcess(err ? 1 : 0);
 }
@@ -79,4 +79,9 @@ async function main() {
   writeFileSync(new URL("index.json", import.meta.url), JSON.stringify(entries, keys, 1));
 }
 
-main().then(exit).catch(exit);
+try {
+  await main();
+  exit();
+} catch (err) {
+  exit(err);
+}
