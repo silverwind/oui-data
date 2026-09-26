@@ -3,7 +3,11 @@
 
 > IEEE OUI database as JSON
 
-## Example
+## Usage
+
+```sh
+pnpm add oui-data
+```
 
 The module exports a JSON file. Depending on your environment you may need to use [import attributes](https://github.com/tc39/proposal-import-attributes), [import assertions](https://nodejs.org/api/esm.html#import-assertions) or [nothing at all](https://bun.sh/guides/runtime/import-json).
 
