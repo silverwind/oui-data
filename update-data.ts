@@ -53,7 +53,7 @@ async function fetchRegistry(url: string) {
   if (!res.ok) throw new Error(`${url} failed with HTTP ${res.status}`);
   const text = await res.text();
   if (!/^(OUI|#|[A-Fa-f0-9])/.test(text)) {
-    throw new Error(`${url} does not look like a IEEE registry file`);
+    throw new Error(`${url} does not look like an IEEE registry file`);
   }
   const entries = parse(text.split("\n"));
   if (new Set(Object.keys(entries).map(key => key.length)).size !== 1) {
