@@ -49,7 +49,9 @@ function parse(lines: Array<string>) {
 }
 
 async function fetchRegistry(url: string) {
-  const text = await (await fetch(url)).text();
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${url} failed with HTTP ${res.status}`);
+  const text = await res.text();
   if (!/^(OUI|#|[A-Fa-f0-9])/.test(text)) {
     throw new Error(`${url} does not look like a IEEE registry file`);
   }
