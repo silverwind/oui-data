@@ -26,5 +26,6 @@ jobs:
         with:
           bun-version: latest
       - run: make deps
+      - run: make lint
       - run: make test
 
