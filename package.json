@@ -1,11 +1,11 @@
 {
   "name": "oui-data",
   "version": "2.1.51",
-  "author": "silverwind <me@silverwind.io>",
   "description": "IEEE OUI database as JSON",
+  "author": "silverwind <me@silverwind.io>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/silverwind/oui-data.git"
+    "url": "git+https://github.com/silverwind/oui-data.git"
   },
   "license": "BSD-2-Clause",
   "type": "module",
@@ -15,19 +15,18 @@
   "files": [
     "./index.json"
   ],
+  "packageManager": "pnpm@12.6.0",
   "devDependencies": {
     "@types/node": "26.6.3",
-    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "eslint": "10.11.0",
-    "eslint-config-silverwind": "151.0.1",
-    "typescript": "6.0.3",
+    "eslint-config-silverwind": "155.2.0",
+    "typescript": "7.0.2",
     "typescript-config-silverwind": "21.0.1",
     "updates": "19.0.2",
-    "updates-config-silverwind": "4.0.7",
+    "updates-config-silverwind": "4.1.0",
     "versions": "15.5.1",
     "vite": "8.3.1",
     "vitest": "5.0.2",
     "vitest-config-silverwind": "12.0.5"
-  },
-  "packageManager": "pnpm@12.6.0"
+  }
 }
