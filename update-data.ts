@@ -63,7 +63,7 @@ async function fetchRegistry(url: string) {
 }
 
 async function main() {
-  const entries = Object.assign({}, ...await Promise.all(sources.map(fetchRegistry)));
+  const entries = Object.assign({}, ...(await Promise.all(sources.map(fetchRegistry))));
   const keys = Object.keys(entries).sort((a, b) => a.length - b.length || (Number.parseInt(a, 16) > Number.parseInt(b, 16) ? 1 : -1));
   writeFileSync(new URL("index.json", import.meta.url), JSON.stringify(entries, keys, 1));
 }
